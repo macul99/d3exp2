@@ -221,6 +221,31 @@ holder7.append("rect")       	// attach a rectangle
     .attr("height", 100)    	// set the height
     .attr("width", 200);    	// set the width
 
+
+// draw text
+var holder8 = d3.select("body")	// select the 'body' element
+	.append("svg")				// append an SVG element to the body
+	.attr("width", width)		// make the SVG element 449 pixels wide
+	.attr("height", height);	// make the SVG element 249 pixels high
+
+var xGridHolder = holder8.append("g");
+var yGridHolder = holder8.append("g");
+
+drawGrid(xGridHolder, yGridHolder);
+
+holder8.append("text")         	// append text
+    .style("fill", "black")   	// fill the text with the colour black
+    .attr("x", 200)           	// set x position of left side of text
+    .attr("y", 50)           	// set y position of bottom of text 
+    .text("Hello World");     	// define the text to display
+
+holder8.append("text")         	// append text
+    .style("fill", "black")   	// fill the text with the colour black
+    .attr("x", 200)           	// set x position of left side of text
+    .attr("y", 150)           	// set y position of bottom of text 
+    .attr("dy", ".35em")        	// set offset y position
+    .attr("text-anchor", "middle") 	// set anchor x justification, options are: middle, start, end
+    .text("Hello World");     	// define the text to display
 </script>
 
 </body>
