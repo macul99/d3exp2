@@ -101,7 +101,9 @@ holder1.append("rect")			// attach a rect
 	.attr("x", 150)				// position the x-center
 	.attr("y", 50)				// position the y-center
 	.attr("width", 100)			// set the rectangle width
-	.attr("height", 100);		// set the rectangle height
+	.attr("height", 100)		// set the rectangle height
+	.attr("rx", 10)				// set the x corner curve radius
+	.attr("ry", 10);			// set the y corner curve radius
 
 // draw an ellipse
 var holder2 = d3.select("body")	// select the 'body' element
