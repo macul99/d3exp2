@@ -1,18 +1,82 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 
+<style> /* set the CSS */
+
+.gridLine{
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+.gridText {font: 12px sans-serif;}
+
+</style>
+
 <body>
 
 <!-- load the d3.js library -->
 <script src="https://d3js.org/d3.v4.min.js"></script>
 
 <script>
-var width = 449, height=249;
+var width = 399, height=199;
+var gridMargin = 5;
+var yGridPos = [50, 100, 150];
+var xGridPos = [50, 100, 150, 200, 250, 300, 350];
+
+function drawGrid(xGrid, yGrid) {
+	// draw y grid
+	yGrid.selectAll("line")
+		.data(yGridPos)
+	  .enter()
+	  	.append("line")
+		.attr("class", "gridLine")
+		.attr("x1", gridMargin)
+		.attr("y1", function(d) {return d;})
+		.attr("x2", width-gridMargin)
+		.attr("y2", function(d) {return d;});
+
+	yGrid.selectAll("text")
+		.data(yGridPos)
+	  .enter()
+	  	.append("text")
+	  	.attr("class", "gridText")
+	  	.attr("x", 0)
+	    .attr("y", function(d) {return d+5;}) // this line and the one above can be replaced by: .attr("transform", "translate("+(width/2) + "," + (height +margin.top +20) + ")")
+	    .style("text-anchor", "left")
+		.text(function(d) {return d.toString();});
+
+	// draw x grid
+	xGrid.selectAll("line")
+		.data(xGridPos)
+	  .enter()
+	  	.append("line")
+		.attr("class", "gridLine")
+		.attr("y1", gridMargin)
+		.attr("x1", function(d) {return d;})
+		.attr("y2", height-gridMargin)
+		.attr("x2", function(d) {return d;});
+
+	xGrid.selectAll("text")
+		.data(xGridPos)
+	  .enter()	
+		.append("text")
+		.attr("class", "gridText")
+	  	.attr("y", 12)
+	    .attr("x", function(d) {return d;}) // this line and the one above can be replaced by: .attr("transform", "translate("+(width/2) + "," + (height +margin.top +20) + ")")
+	    .style("text-anchor", "middle")
+		.text(function(d) {return d.toString();});
+}
 
 var holder = d3.select("body")	// select the 'body' element
 	.append("svg")				// append an SVG element to the body
 	.attr("width", width)			// make the SVG element 449 pixels wide
 	.attr("height", height);		// make the SVG element 249 pixels high
+
+var xGridHolder = holder.append("g");
+var yGridHolder = holder.append("g");
+
+drawGrid(xGridHolder, yGridHolder);
 
 // draw a circle
 holder.append("circle")			// attach a circle
@@ -26,6 +90,11 @@ var holder1 = d3.select("body")	// select the 'body' element
 	.attr("transform", "translate( " + (-width) + ", " + height + " )") // position the new svg element below to the existing one
 	.attr("width", width)			// make the SVG element 449 pixels wide
 	.attr("height", height);		// make the SVG element 249 pixels high
+
+var xGridHolder = holder1.append("g");
+var yGridHolder = holder1.append("g");
+
+drawGrid(xGridHolder, yGridHolder);
 
 // draw a rect
 holder1.append("rect")			// attach a rect
