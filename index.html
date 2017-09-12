@@ -68,41 +68,58 @@ function drawGrid(xGrid, yGrid) {
 		.text(function(d) {return d.toString();});
 }
 
+// draw a circle
 var holder = d3.select("body")	// select the 'body' element
 	.append("svg")				// append an SVG element to the body
-	.attr("width", width)			// make the SVG element 449 pixels wide
-	.attr("height", height);		// make the SVG element 249 pixels high
+	.attr("width", width)		// make the SVG element 449 pixels wide
+	.attr("height", height);	// make the SVG element 249 pixels high
 
 var xGridHolder = holder.append("g");
 var yGridHolder = holder.append("g");
 
 drawGrid(xGridHolder, yGridHolder);
 
-// draw a circle
 holder.append("circle")			// attach a circle
 	.attr("cx", 200)			// position the x-center
 	.attr("cy", 100)			// position the y-center
 	.attr("r", 50);				// set the radius
 
 
+// draw a rect
 var holder1 = d3.select("body")	// select the 'body' element
 	.append("svg")				// append an SVG element to the body
 	.attr("transform", "translate( " + (-width) + ", " + height + " )") // position the new svg element below to the existing one
-	.attr("width", width)			// make the SVG element 449 pixels wide
-	.attr("height", height);		// make the SVG element 249 pixels high
+	.attr("width", width)		// make the SVG element 449 pixels wide
+	.attr("height", height);	// make the SVG element 249 pixels high
 
 var xGridHolder = holder1.append("g");
 var yGridHolder = holder1.append("g");
 
 drawGrid(xGridHolder, yGridHolder);
 
-// draw a rect
 holder1.append("rect")			// attach a rect
 	.attr("x", 150)				// position the x-center
 	.attr("y", 50)				// position the y-center
 	.attr("width", 100)			// set the rectangle width
 	.attr("height", 100);		// set the rectangle height
 
+// draw an ellipse
+var holder2 = d3.select("body")	// select the 'body' element
+	.append("svg")				// append an SVG element to the body
+	.attr("transform", "translate( " + (-2*width) + ", " + (2*height) + " )") // position the new svg element below to the existing one
+	.attr("width", width)		// make the SVG element 449 pixels wide
+	.attr("height", height);	// make the SVG element 249 pixels high
+
+var xGridHolder = holder2.append("g");
+var yGridHolder = holder2.append("g");
+
+drawGrid(xGridHolder, yGridHolder);
+
+holder2.append("ellipse")		// attach a rect
+	.attr("cx", 200)			// position the x-center
+	.attr("cy", 100)			// position the y-center
+	.attr("rx", 100)			// set the rectangle width
+	.attr("ry", 50);			// set the rectangle height
 </script>
 
 </body>
