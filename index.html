@@ -7,17 +7,33 @@
 <script src="https://d3js.org/d3.v4.min.js"></script>
 
 <script>
+var width = 449, height=249;
 
 var holder = d3.select("body")	// select the 'body' element
 	.append("svg")				// append an SVG element to the body
-	.attr("width", 449)			// make the SVG element 449 pixels wide
-	.attr("height", 249)		// make the SVG element 249 pixels high
+	.attr("width", width)			// make the SVG element 449 pixels wide
+	.attr("height", height);		// make the SVG element 249 pixels high
 
 // draw a circle
 holder.append("circle")			// attach a circle
 	.attr("cx", 200)			// position the x-center
 	.attr("cy", 100)			// position the y-center
 	.attr("r", 50);				// set the radius
+
+
+var holder1 = d3.select("body")	// select the 'body' element
+	.append("svg")				// append an SVG element to the body
+	.attr("transform", "translate( " + (-width) + ", " + height + " )") // position the new svg element below to the existing one
+	.attr("width", width)			// make the SVG element 449 pixels wide
+	.attr("height", height);		// make the SVG element 249 pixels high
+
+// draw a rect
+holder1.append("rect")			// attach a rect
+	.attr("x", 150)				// position the x-center
+	.attr("y", 50)				// position the y-center
+	.attr("width", 100)			// set the rectangle width
+	.attr("height", 100);		// set the rectangle height
+
 </script>
 
 </body>
