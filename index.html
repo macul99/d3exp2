@@ -323,6 +323,42 @@ holder11.append("text")         	// append text
     .attr("text-anchor", "middle") 	// set anchor x justification, options are: middle, start, end
     .attr("transform", "translate(200, 100) scale(2) rotate(10)")
     .text("Hello World");     	// define the text to display
+
+
+// draw text with textlength control
+var holder12 = d3.select("body")	// select the 'body' element
+	.append("svg")				// append an SVG element to the body
+	.attr("width", width)		// make the SVG element 449 pixels wide
+	.attr("height", height);	// make the SVG element 249 pixels high
+
+var xGridHolder = holder12.append("g");
+var yGridHolder = holder12.append("g");
+
+drawGrid(xGridHolder, yGridHolder);
+
+holder12.append("text")          // append text
+    .style("fill", "black")    // fill the text with the colour black
+    .attr("x", 200)            // set x position of left side of text
+    .attr("y", 50)             // set y position of bottom of text 
+    .text("Hello World");      // define the text to display 
+    
+holder12.append("text")          // append text
+    .style("fill", "black")    // fill the text with the colour black
+    .attr("x", 200)            // set x position of left side of text
+    .attr("y", 100)            // set y position of bottom of text 
+    .attr("textLength", "150") // set text length
+    .attr("lengthAdjust", "spacing")
+    .text("Hello World");      // define the text to display 
+
+holder12.append("text")          // append text
+    .style("fill", "black")    // fill the text with the colour black
+    .attr("x", 200)            // set x position of left side of text
+    .attr("y", 150)            // set y position of bottom of text 
+    .attr("textLength", "150") // set text length
+    .attr("lengthAdjust", "spacingAndGlyphs")
+    .text("Hello World");      // define the text to display
+
+
 </script>
 
 </body>
