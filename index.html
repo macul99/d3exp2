@@ -358,7 +358,125 @@ holder12.append("text")          // append text
     .attr("lengthAdjust", "spacingAndGlyphs")
     .text("Hello World");      // define the text to display
 
+// draw a circle with style
+var holder13 = d3.select("body")	// select the 'body' element
+	.append("svg")				// append an SVG element to the body
+	.attr("width", width)		// make the SVG element 449 pixels wide
+	.attr("height", height);	// make the SVG element 249 pixels high
 
+var xGridHolder = holder13.append("g");
+var yGridHolder = holder13.append("g");
+
+drawGrid(xGridHolder, yGridHolder);
+
+holder13.append("circle")			// attach a circle
+	.attr("cx", 200)			// position the x-center
+	.attr("cy", 100)			// position the y-center
+	.attr("r", 50)				// set the radius
+	.style("stroke", "red")
+	.style("fill", "pink")
+	.style("stroke-width", 5)
+	.style("stroke-dasharray", ("10, 3, 5, 1"))
+	.style("opacity", .5);
+
+
+// draw a line with style stroke-linecap
+var holder14 = d3.select("body")	// select the 'body' element
+	.append("svg")				// append an SVG element to the body
+	.attr("width", width)		// make the SVG element 449 pixels wide
+	.attr("height", height);	// make the SVG element 249 pixels high
+
+var xGridHolder = holder14.append("g");
+var yGridHolder = holder14.append("g");
+
+drawGrid(xGridHolder, yGridHolder);
+
+holder14.append("line")                 // attach a line
+    .style("stroke", "black")         // colour the line
+    .style("stroke-width", 20)        // adjust line width
+    .style("stroke-linecap", "butt")  // stroke-linecap type
+    .attr("x1", 100)     // x position of the first end of the line
+    .attr("y1", 50)      // y position of the first end of the line
+    .attr("x2", 300)     // x position of the second end of the line
+    .attr("y2", 50);     // y position of the second end of the line
+
+holder14.append("line")                  // attach a line
+    .style("stroke", "black")          // colour the line
+    .style("stroke-width", 20)         // adjust line width
+    .style("stroke-linecap", "round")  // stroke-linecap type
+    .attr("x1", 100)     // x position of the first end of the line
+    .attr("y1", 100)     // y position of the first end of the line
+    .attr("x2", 300)     // x position of the second end of the line
+    .attr("y2", 100);    // y position of the second end of the line
+
+holder14.append("line")                   // attach a line
+    .style("stroke", "black")           // colour the line
+    .style("stroke-width", 20)          // adjust line width
+    .style("stroke-linecap", "square")  // stroke-linecap type
+    .attr("x1", 100)     // x position of the first end of the line
+    .attr("y1", 150)     // y position of the first end of the line
+    .attr("x2", 300)     // x position of the second end of the line
+    .attr("y2", 150);    // y position of the second end of the line
+
+
+// draw a line with style stroke-linejoin
+var holder15 = d3.select("body")	// select the 'body' element
+	.append("svg")				// append an SVG element to the body
+	.attr("width", width)		// make the SVG element 449 pixels wide
+	.attr("height", height);	// make the SVG element 249 pixels high
+
+var xGridHolder = holder15.append("g");
+var yGridHolder = holder15.append("g");
+
+drawGrid(xGridHolder, yGridHolder);
+
+holder15.append("polyline")       // attach a polyline
+    .style("stroke", "red")   // colour the line
+    .style("fill", "none")      // remove any fill colour
+	.style("stroke-width", 20)  // colour the line
+	.style("stroke-linejoin", "round")  // shape the line join
+    .attr("points", "130,30, 200,80, 270,30");  // x,y points
+
+holder15.append("polyline")       // attach a polyline
+    .style("stroke", "red")   // colour the line
+    .style("fill", "none")      // remove any fill colour
+	.style("stroke-width", 20)  // colour the line
+	.style("stroke-linejoin", "bevel")  // shape the line join
+    .attr("points", "130,80, 200,130, 270,80");  // x,y points
+
+holder15.append("polyline")       // attach a polyline
+    .style("stroke", "red")   // colour the line
+    .style("fill", "none")      // remove any fill colour
+	.style("stroke-width", 20)  // colour the line
+	.style("stroke-linejoin", "miter")  // shape the line join
+    .attr("points", "130,130, 200,180, 270,130");  // x,y points
+
+
+// draw a text with writing-mode and glyph-orientation-vertical
+var holder16 = d3.select("body")	// select the 'body' element
+	.append("svg")				// append an SVG element to the body
+	.attr("width", width)		// make the SVG element 449 pixels wide
+	.attr("height", height);	// make the SVG element 249 pixels high
+
+var xGridHolder = holder16.append("g");
+var yGridHolder = holder16.append("g");
+
+drawGrid(xGridHolder, yGridHolder);
+
+holder16.append("text")            // append text
+    .style("fill", "black")      // make the text black
+    .style("writing-mode", "tb") // set the writing mode
+    .attr("x", 150)         // set x position of left side of text
+    .attr("y", 25)          // set y position of bottom of text
+    .text("Hello World");   // define the text to display
+
+holder16.append("text")            // append text
+    .style("fill", "black")      // make the text black
+    .style("writing-mode", "tb") // set the writing mode
+    .style("glyph-orientation-vertical", 0)
+    .attr("x", 250)         // set x position of left side of text
+    .attr("y", 25)          // set y position of bottom of text
+    .text("Hello World");   // define the text to display
 </script>
 
 </body>
